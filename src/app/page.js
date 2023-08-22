@@ -10,19 +10,20 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 
+
 export default function Home() {
   const [fix, setFix] = useState(false)
 
-  const setFixedSidebar=() =>{
-    if(window.scrollY >= 500){
+  const setFixedSidebar = () => {
+    if (window.scrollY >= 1000) {
       setFix(true)
     }
-    else{
+    else {
       setFix(false)
     }
   }
 
-  window.addEventListener('scroll',setFixedSidebar)
+  window.addEventListener('scroll', setFixedSidebar)
 
   return (
     <div>
@@ -88,7 +89,7 @@ export default function Home() {
               }
             </div>
           </div>
-          <div className={`h-full w-1/3 right-0 ${fix ? 'fixed top-[6%]':''}`}>
+          <div className={`h-full   my-16  ${fix ? 'fixed top-[10%] w-[30%] right-[4.5rem]' : ''}`}>
             <div className='pb-5 border-b-[1px] border-[#d9d9dc] mb-7'>
               <h1 className='text-[18px] font-bold mb-4 '>Discover more of what matters to you</h1>
               <div className='flex gap-3 flex-wrap mb-4'>
