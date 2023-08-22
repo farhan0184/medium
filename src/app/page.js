@@ -31,9 +31,10 @@ export default function Home() {
 
   return (
     <div>
-
+      {/* navbar section */}
       <Navbar />
-      <section className='bg-[#ffc017] 2xl:h-[25vw] xl:h-[85vh] sm:h-[100vh] xsm:h-[95vh] h-[105vh]  border-b-[1px] border-black'>
+      {/* header section  */}
+      <section className='bg-[#ffc017] 2xl:h-[25vw] xl:h-[85vh] md:h-[50vh]  lg:h-[65vh]  sm:h-[100vh] xsm:h-[95vh] h-[105vh]  border-b-[1px] border-black'>
         <div className='w-[90%] 2xl:w-[50%] mx-auto md:grid md:grid-cols-2 sm:flex  h-full'>
           <div className='h-full flex items-center '>
             <div >
@@ -54,6 +55,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* trending blogs section */}
       <section className='  mt-20 border-b-[1px] border-[#d9d9dc]'>
         <div className='w-[90%] 2xl:w-[50%] mx-auto'>
           <div className='flex gap-3 items-center'>
@@ -72,8 +74,10 @@ export default function Home() {
         </div>
       </section>
 
+      {/* all blog section */}
       <section className='w-[90%] mx-auto 2xl:w-[50%]'>
         <div className='md:grid md:grid-cols-3 relative -z-50'>
+          {/* blog section */}
           <div className='col-span-2 my-16'>
             <div className='md:w-[90%]'>
               {
@@ -93,7 +97,8 @@ export default function Home() {
               }
             </div>
           </div>
-          <div className={`md:block hidden h-full   my-16  ${fix ? 'fixed 2xl:top-[5%] top-[10%] w-[30%] right-[4.5rem]' : ''}`}>
+          {/* discover more section */}
+          <div className={`md:block hidden  my-16  ${fix ? 'fixed 2xl:top-[5%] top-[5%] w-[30%] 2xl:w-[17%] right-[5%] 2xl:right-[25%] ' : ''}`}>
             <div className='pb-5 border-b-[1px] border-[#d9d9dc] mb-7'>
               <h1 className='text-[18px] font-bold mb-4 '>Discover more of what matters to you</h1>
               <div className='flex gap-3 flex-wrap mb-4'>
@@ -108,7 +113,7 @@ export default function Home() {
             <div className='flex flex-wrap gap-x-5 gap-y-2'>
               {
                 footerLinks.flatMap((item, idx) =>
-                  <p key={idx} className='text-[#656566]'>{item}</p>
+                  <p key={idx} className='text-[#656566] '>{item}</p>
                 )
               }
             </div>
