@@ -7,7 +7,7 @@ import { blogs, discovers, footerLinks } from '@/components/data';
 import TrendBlog from '@/components/trendblogs';
 import DiscoverItem from '@/components/discoveritems';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
@@ -23,7 +23,9 @@ export default function Home() {
     }
   }
 
-  window.addEventListener('scroll', setFixedSidebar)
+  useEffect(()=>{
+    window.addEventListener('scroll', setFixedSidebar)
+  },[fix])
 
   return (
     <div>
@@ -69,9 +71,9 @@ export default function Home() {
       </section>
 
       <section className='w-[90%] mx-auto 2xl:w-[50%]'>
-        <div className='grid grid-cols-3 relative -z-50'>
+        <div className='md:grid md:grid-cols-3 relative -z-50'>
           <div className='col-span-2 my-16'>
-            <div className='w-[90%]'>
+            <div className='md:w-[90%]'>
               {
                 blogs.map(item => (
                   <div key={item.id} className='grid grid-cols-3 mb-10'>
@@ -89,7 +91,7 @@ export default function Home() {
               }
             </div>
           </div>
-          <div className={`h-full   my-16  ${fix ? 'fixed top-[10%] w-[30%] right-[4.5rem]' : ''}`}>
+          <div className={`md:block hidden h-full   my-16  ${fix ? 'fixed 2xl:top-[5%] top-[10%] w-[30%] right-[4.5rem]' : ''}`}>
             <div className='pb-5 border-b-[1px] border-[#d9d9dc] mb-7'>
               <h1 className='text-[18px] font-bold mb-4 '>Discover more of what matters to you</h1>
               <div className='flex gap-3 flex-wrap mb-4'>
