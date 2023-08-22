@@ -24,7 +24,9 @@ export default function Home() {
   }
 
   useEffect(()=>{
-    window.addEventListener('scroll', setFixedSidebar)
+    if (typeof window !== "undefined"){
+      window.addEventListener('scroll', setFixedSidebar)
+    }
   },[fix])
 
   return (
