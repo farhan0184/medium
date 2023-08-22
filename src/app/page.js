@@ -8,6 +8,7 @@ import TrendBlog from '@/components/trendblogs';
 import DiscoverItem from '@/components/discoveritems';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import BlogDateSection from '@/components/blogdatesection';
 
 
 
@@ -83,13 +84,31 @@ export default function Home() {
               {
                 blogs.map(item => (
                   <div key={item.id} className='grid grid-cols-3 mb-10'>
+                    {/* blog left section */}
                     <div className='col-span-2'>
+                      {/* blog user section */}
+                      <div className='flex gap-2 items-center'>
+                         <Image
+                            src={item.img}
+                            alt={item.person}
+                            width={20}
 
+                         />
+                         <p className='text-[12px] '><span className='font-bold'>{item.person}</span> in <span className='font-bold'>{item.from}</span></p>
+                      </div>
+                      {/* blog title and details */}
+                      <div className='my-2'>
+                         <h1 className='text-2xl font-bold pe-2'>{item.title}</h1>
+                         <p>{item.details}</p>
+                      </div>
+                      {/* blog like, comment & add icon */}
+                      <BlogDateSection item={item}/>
                     </div>
                     <div>
                       <Image
                         src={item.banner}
                         alt={`banner ${item.id}`}
+                        className='h-full'
                       />
                     </div>
                   </div>

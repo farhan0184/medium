@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { BsFillStarFill } from 'react-icons/bs';
+
+import BlogDateSection from "./blogdatesection";
 
 export default function TrendBlog({trendBlog,idx}){
     return (
@@ -19,13 +20,7 @@ export default function TrendBlog({trendBlog,idx}){
 
                   </div>
                   <h1 className='text-xl font-bold mb-3'>{trendBlog.title}</h1>
-                  <div className='flex gap-1 items-center text-[14px]'>
-                    <p>{trendBlog.date}</p>.
-                    <p>{trendBlog.time}</p>
-                    {
-                      trendBlog.member && <BsFillStarFill className='text-[#ffc017]'/>
-                    }
-                  </div>
+                  <BlogDateSection item={trendBlog}/>
                 </div>
               </div>
     )
