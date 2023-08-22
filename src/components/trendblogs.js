@@ -1,0 +1,32 @@
+import Image from "next/image";
+import { BsFillStarFill } from 'react-icons/bs';
+
+export default function TrendBlog({trendBlog,idx}){
+    return (
+        <div className='flex gap-3 lg:mb-2 mb-5'>
+                <div>
+                  <h1 className='text-3xl text-[#d9d9dc]'>0{idx + 1}</h1>
+                </div>
+                <div className=''>
+                  <div className='flex gap-1 items-center mb-3'>
+                    <Image
+                       src={trendBlog.logo}
+                       alt={trendBlog.from}
+                       width={30}
+                    />
+                    <p>{trendBlog.person} in</p>
+                    <p>{trendBlog.from}</p>
+
+                  </div>
+                  <h1 className='text-xl font-bold mb-3'>{trendBlog.title}</h1>
+                  <div className='flex gap-1 items-center text-[14px]'>
+                    <p>{trendBlog.date}</p>.
+                    <p>{trendBlog.time}</p>
+                    {
+                      trendBlog.member && <BsFillStarFill className='text-[#ffc017]'/>
+                    }
+                  </div>
+                </div>
+              </div>
+    )
+}
