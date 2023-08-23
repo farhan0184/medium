@@ -5,7 +5,6 @@ import LikeComment from "@/components/likecomment"
 import ListenShare from "@/components/listenshare"
 import Image from "next/image"
 import { BsFillStarFill } from 'react-icons/bs'
-import { HiOutlineHandRaised } from 'react-icons/hi2'
 import { MdOutlineBookmarkAdd } from 'react-icons/md'
 
 export default function Page({ params }) {
@@ -78,8 +77,6 @@ export default function Page({ params }) {
                         </div>
                     </div>
                 </div>
-
-
                 {/* blog details section */}
                 <div >
                     <div className="my-16">
@@ -93,7 +90,17 @@ export default function Page({ params }) {
                 </div>
             </div>
 
+            {/* footer section */}
+            {/* <div className='bg-slate-200 h-[100vh]'>
+                <div className='2xl:w-[50%] xl:w-[60%] lg:w-[70%] md:w-[90%] w-[85%]  mx-auto py-8'>
+                    
+                    <div>
 
+                    </div>
+
+                </div>
+
+            </div> */}
         </div>
     )
 }

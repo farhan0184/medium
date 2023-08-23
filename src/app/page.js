@@ -6,13 +6,13 @@ import GooglePaly from '../../public/assets/images/gPlayStore.webp'
 import ApplePaly from '../../public/assets/images/aPlayStore.png'
 import Image from 'next/image'
 import { BiTrendingUp } from 'react-icons/bi';
+import { BsFillStarFill } from 'react-icons/bs';
 import { blogs, discovers, footerLinks } from '@/components/data';
-import TrendBlog from '@/components/trendblogs';
-import DiscoverItem from '@/components/discoveritems';
+
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import PlayStore from '@/components/playstore'
-import Blog from '@/components/blog'
+import { MdOutlineBookmarkAdd } from 'react-icons/md'
 
 
 
@@ -72,7 +72,30 @@ export default function Home() {
           <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 my-8'>
             {
               blogs.filter(blog => blog.trend === true).map((trendBlog, idx) => (
-                <TrendBlog key={idx} idx={idx} trendBlog={trendBlog} />
+                <div key={idx} className='flex gap-3 lg:mb-2 mb-5'>
+                  <div>
+                    <h1 className='text-3xl text-[#d9d9dc]'>0{idx + 1}</h1>
+                  </div>
+                  <div className=''>
+                    <div className='flex gap-1 items-center mb-3'>
+                      <Image
+                        src={trendBlog.logo}
+                        alt={trendBlog.from}
+                        width={30}
+                      />
+                      <p className="text-[12px]"><span className="font-bold">{trendBlog.person}</span> in <span className="font-bold">{trendBlog.from}</span></p>
+
+                    </div>
+                    <Link href={`/${trendBlog.id}`}><h1 className='text-xl font-bold mb-3'>{trendBlog.title}</h1></Link>
+                    <div className='flex gap-1 items-center text-[14px]'>
+                      <p>{trendBlog.date}</p>.
+                      <p>{trendBlog.time}</p>
+                      {
+                        trendBlog.member && <BsFillStarFill className='text-[#ffc017]' />
+                      }
+                    </div>
+                  </div>
+                </div>
               ))
             }
           </div>
@@ -87,7 +110,44 @@ export default function Home() {
             <div className='lg:w-[90%] '>
               {
                 blogs.map(item => (
-                  <Blog key={item.id} item={item}/>
+                  <div key={item.id} className='grid grid-cols-3 mb-10 '>
+                    {/* blog left section */}
+                    <div className='col-span-2 w-[95%] '>
+                      {/* blog user section */}
+                      <div className='flex gap-2 items-center'>
+                        <Image
+                          src={item.img}
+                          alt={item.person}
+                          width={20}
+
+                        />
+                        <p className='text-[12px] '><span className='font-bold'>{item.person}</span> in <span className='font-bold'>{item.from}</span></p>
+                      </div>
+                      {/* blog title and details */}
+                      <div className='my-2'>
+                        <Link href={`/${item.id}`} className='sm:text-xl text-[16px] font-bold pe-2 cursor-pointer'>{item.title}</Link>
+                        <p className='text-[12px] sm:text-[14px]'>{item.details}</p>
+                      </div>
+                      {/* blog like, comment & add icon */}
+                      <div className='flex justify-between items-center'>
+                        <div className='flex gap-1 items-center text-[14px]'>
+                          <p>{item.date}</p>.
+                          <p>{item.time}</p>
+                          {
+                            item.member && <BsFillStarFill className='text-[#ffc017]' />
+                          }
+                        </div>
+                        <MdOutlineBookmarkAdd className='sm:text-2xl text-[18px]' />
+                      </div>
+                    </div>
+                    <div>
+                      <Image
+                        src={item.banner}
+                        alt={`banner ${item.id}`}
+                        className='h-full'
+                      />
+                    </div>
+                  </div>
                 ))
               }
             </div>
@@ -99,7 +159,9 @@ export default function Home() {
               <div className='flex gap-3 flex-wrap mb-2'>
                 {
                   discovers.flatMap((item, idx) => (
-                    <DiscoverItem key={idx} item={item} />
+                    <div key={idx} className='rounded-[30px] px-4 py-2 bg-[#d9d9dc]'>
+                      <p className='text-[12px]'>{item}</p>
+                    </div>
                   ))
                 }
               </div>
@@ -140,9 +202,9 @@ export default function Home() {
             <h3 className='text-white text-[18px] font-bold'>Get The Medium App</h3>
 
             <div className='flex gap-4 mt-4'>
-               
-              <PlayStore img={ApplePaly} subtitle={"Download on the"} title={'App Play'}/>
-              <PlayStore img={GooglePaly} subtitle={"GET IT ON"} title={'Google Play'}/>
+
+              <PlayStore img={ApplePaly} subtitle={"Download on the"} title={'App Play'} />
+              <PlayStore img={GooglePaly} subtitle={"GET IT ON"} title={'Google Play'} />
             </div>
           </div>
         </div>
