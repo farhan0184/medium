@@ -6,14 +6,13 @@ import GooglePaly from '../../public/assets/images/gPlayStore.webp'
 import ApplePaly from '../../public/assets/images/aPlayStore.png'
 import Image from 'next/image'
 import { BiTrendingUp } from 'react-icons/bi';
-import { MdOutlineBookmarkAdd } from 'react-icons/md';
 import { blogs, discovers, footerLinks } from '@/components/data';
 import TrendBlog from '@/components/trendblogs';
 import DiscoverItem from '@/components/discoveritems';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import BlogDateSection from '@/components/blogdatesection';
 import PlayStore from '@/components/playstore'
+import Blog from '@/components/blog'
 
 
 
@@ -82,44 +81,13 @@ export default function Home() {
 
       {/* all blog section */}
       <section className='w-[90%] mx-auto 2xl:w-[50%] '>
-        <div className='lg:grid lg:grid-cols-3 relative -z-50'>
+        <div className='lg:grid lg:grid-cols-3 relative'>
           {/* blog section */}
           <div className='col-span-2 mt-16'>
-            <div className='lg:w-[90%]'>
+            <div className='lg:w-[90%] '>
               {
                 blogs.map(item => (
-                  <div key={item.id} className='grid grid-cols-3 mb-10'>
-                    {/* blog left section */}
-                    <div className='col-span-2 w-[95%]'>
-                      {/* blog user section */}
-                      <div className='flex gap-2 items-center'>
-                        <Image
-                          src={item.img}
-                          alt={item.person}
-                          width={20}
-
-                        />
-                        <p className='text-[12px] '><span className='font-bold'>{item.person}</span> in <span className='font-bold'>{item.from}</span></p>
-                      </div>
-                      {/* blog title and details */}
-                      <div className='my-2'>
-                        <h1 className='sm:text-2xl text-[18px] font-bold pe-2'>{item.title}</h1>
-                        <p className='text-[14px] sm:text-[18px]'>{item.details}</p>
-                      </div>
-                      {/* blog like, comment & add icon */}
-                      <div className='flex justify-between items-center'>
-                        <BlogDateSection item={item} />
-                        <MdOutlineBookmarkAdd className='sm:text-2xl text-[18px]' />
-                      </div>
-                    </div>
-                    <div>
-                      <Image
-                        src={item.banner}
-                        alt={`banner ${item.id}`}
-                        className='h-full'
-                      />
-                    </div>
-                  </div>
+                  <Blog key={item.id} item={item}/>
                 ))
               }
             </div>

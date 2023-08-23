@@ -7,9 +7,9 @@ import Script from "next/script";
 
 export default function Navbar() {
     return (
-        <div className="z-50">
+        <div className="">
             
-            <header className="bg-[#ffc017] border-b-[1px] border-black fixed top-0 left-0 w-full">
+            <header className="bg-[#ffc017] border-b-[1px] border-black fixed top-0 left-0 w-full z-50">
                 <div className="flex py-4 w-[90%] 2xl:w-[50%] mx-auto  ">
                     <div className="flex items-center xsm:w-[40%] w-[60%]">
                         <Image

@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import BlogDateSection from "./blogdatesection";
+import Link from "next/link";
 
 export default function TrendBlog({ trendBlog, idx }) {
   return (
@@ -18,7 +19,7 @@ export default function TrendBlog({ trendBlog, idx }) {
           <p className="text-[12px]"><span className="font-bold">{trendBlog.person}</span> in <span className="font-bold">{trendBlog.from}</span></p>
 
         </div>
-        <h1 className='text-xl font-bold mb-3'>{trendBlog.title}</h1>
+        <Link href={`/${trendBlog.id}`}><h1 className='text-xl font-bold mb-3'>{trendBlog.title}</h1></Link>
         <BlogDateSection item={trendBlog} />
       </div>
     </div>
