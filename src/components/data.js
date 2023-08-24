@@ -28,7 +28,8 @@ export const blogs =[
         comment: '18',
         like: '3.4K',
         banner: Banner1,
-        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.'
+        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+        typeOfCom: 'Programming'
     },
     {
         id: 2,
@@ -45,7 +46,8 @@ export const blogs =[
         comment: '180',
         like: '3K',
         banner: Banner2,
-        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing '
+        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing ',
+        typeOfCom: 'Technology'
     },
     {
         id: 3,
@@ -62,7 +64,8 @@ export const blogs =[
         comment: '30',
         like: '2.3K',
         banner: Banner3,
-        details: 'Lorem ipsum dolor sit amet'
+        details: 'Lorem ipsum dolor sit amet',
+        typeOfCom: 'Programming'
     },
     {
         id: 4,
@@ -79,7 +82,8 @@ export const blogs =[
         comment: '18',
         like: '3.4K',
         banner: Banner4,
-        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas inventore nulla unde harum quod ab itaque doloribus soluta vitae,'
+        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas inventore nulla unde harum quod ab itaque doloribus soluta vitae,',
+        typeOfCom: 'Technology'
     },
     {
         id: 5,
@@ -96,7 +100,8 @@ export const blogs =[
         comment: '11',
         like: '1.4K',
         banner: Banner1,
-        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas inventore nulla unde harum quod ab itaque doloribus soluta vitae,'
+        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas inventore nulla unde harum quod ab itaque doloribus soluta vitae,',
+        typeOfCom: 'Technology'
     },
     {
         id: 6,
@@ -113,7 +118,8 @@ export const blogs =[
         comment: '18',
         like: '3.4K',
         banner: Banner2,
-        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas inventore'
+        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas inventore',
+        typeOfCom: 'Technology'
     },
     {
         id: 7,
@@ -130,7 +136,8 @@ export const blogs =[
         comment: '18',
         like: '3.4K',
         banner: Banner3,
-        details: 'Lorem ipsum dolor sit amet consectetur, adi'
+        details: 'Lorem ipsum dolor sit amet consectetur, adi',
+        typeOfCom: 'Programming'
     },
     {
         id: 8,
@@ -147,7 +154,8 @@ export const blogs =[
         comment: '18',
         like: '3.4K',
         banner: Banner4,
-        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas inventore nulla unde harum quod ab itaque'
+        details: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas inventore nulla unde harum quod ab itaque',
+        typeOfCom: 'Programming'
     },
 
 ]
@@ -156,3 +164,35 @@ export const blogs =[
 export const discovers = ['Programming', 'Data Science', "Technology",'Self Improvement', 'Writing', 'Relationships','Machine Learning', 'Productivity','Politics']
 
 export const footerLinks = ['Help','About','Terms','Privacy','Status','Writers','Blogs','Careers','Text to Speech','Teams']
+
+
+export const lists =[
+    {
+        id: 1,
+        title: 'Self-Improvement 101',
+        stories: 20,
+        saves: 446,
+        img: Banner4
+    },
+    {
+        id: 2,
+        title: 'Staff Picks',
+        stories: 408,
+        saves: 230,
+        img: Banner3
+    },
+    {
+        id: 3,
+        title: 'Marketing',
+        stories: 127,
+        saves: 75,
+        img: Banner1
+    },
+    {
+        id: 4,
+        title: 'Stories to Help You Level-Up at Work',
+        stories: 19,
+        saves: 179,
+        img: Banner2
+    },
+]

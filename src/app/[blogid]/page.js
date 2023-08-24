@@ -1,6 +1,6 @@
 import BlogDetail from "@/components/blogdetail"
 import BlogNavbar from "@/components/blognavbar"
-import { blogs } from "@/components/data"
+import { blogs, footerLinks, lists } from "@/components/data"
 import JointImage from "@/components/jointimage"
 import LikeComment from "@/components/likecomment"
 import ListenShare from "@/components/listenshare"
@@ -12,7 +12,7 @@ import Blog from "@/components/blog"
 
 export default function Page({ params }) {
     const blog = blogs.find(item => item.id == params.blogid)
-    const { id, person, member, img, from, logo, title, date, time, dayleft, comment, like, banner, details } = blog
+    const { id, person, member, img, from, logo, title, date, time, comment, like, banner, details, typeOfCom} = blog
 
     return (
         <div>
@@ -110,12 +110,63 @@ export default function Page({ params }) {
                     <div className="grid sm:grid-cols-2 grid-cols-1 gap-10">
                         {
                             blogs.filter(item => item.person === person).map(item =>
-                                <Blog key={item.id} item={item}/>
+                                <Blog key={item.id} item={item} />
                             )
                         }
                     </div>
 
+                    {/* list section */}
+                    <div className="py-7 border-b-[1px] border-t-[1px]  my-16">
+                        <p className="text-[18px] font-bold">Lists</p>
+                        <div className="mt-5 grid md:grid-cols-2 grid-cols-1 gap-4">
+                            {
+                                lists.map(item =>
+                                    <div key={item.id} className="flex gap-2">
+                                        <div className="w-[30%]">
+                                            <Image
+                                                src={item.img}
+                                                alt={item.title}
+                                                className="w-full h-[80px]"
+                                            />
+                                        </div>
+                                        <div className="flex items-center w-[70%]">
+                                            <div>
+                                                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                                                <p className="text-[14px] text-[#9d9fa3]">{item.stories} stories . {item.saves} saves</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>
+
+                    {/* Recommended from Medium */}
+                    <div className="my-8">
+                        <h1 className="text-2xl font-bold my-8">Recommended from Medium</h1>
+                        <div className="grid sm:grid-cols-2 grid-cols-1 gap-10 border-b-[1px] pb-10">
+                            {
+                                blogs.filter(item => item.typeOfCom === typeOfCom &&  item.person !== person).map(item=> 
+                                    <Blog key={item.id} item={item} />   
+                                )
+                            }
+                        </div>
+                    </div>
+
                 </div>
+
+
+                <footer className="lg:block hidden border-t-[1px] mt-10 ">
+                    <div className=" flex justify-center  gap-1  my-5">
+                    {
+                        footerLinks.flatMap((item,idx)=>
+                            <div key={idx} className=" text-[#868484] me-5">
+                                <p className="text-[12px] text-center">{item}</p>
+                            </div>   
+                        )
+                    }
+                    </div>
+                </footer>
 
             </div>
         </div>
