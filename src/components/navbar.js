@@ -1,15 +1,29 @@
-
+'use client'
 import Image from "next/image";
 import Logo from '../../public/assets/images/logo.png'
 import Link from "next/link";
-import Script from "next/script";
+import { useEffect, useState } from "react";
 
 
 export default function Navbar() {
+    const [color, setColor] = useState(false)
+    const setNavColor = () => {
+        if (window.scrollY >= 400) {
+            setColor(true)
+        }
+        else {
+            setColor(false)
+        }
+    }
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            window.addEventListener('scroll', setNavColor)
+        }
+    }, [color])
     return (
         <div className="">
-            
-            <header className="bg-[#ffc017] border-b-[1px] border-black fixed top-0 left-0 w-full z-50">
+
+            <header className={`${color?'bg-white transition ease-in-out delay-150': 'bg-[#ffc017]'} border-b-[1px] border-black fixed top-0 left-0 w-full z-50`}>
                 <div className="flex py-4 w-[90%] 2xl:w-[50%] mx-auto  ">
                     <div className="flex items-center xsm:w-[40%] w-[60%]">
                         <Image

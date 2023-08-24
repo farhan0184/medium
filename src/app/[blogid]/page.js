@@ -161,7 +161,7 @@ export default function Page({ params }) {
                     {
                         footerLinks.flatMap((item,idx)=>
                             <div key={idx} className=" text-[#868484] me-5">
-                                <p className="text-[12px] text-center">{item}</p>
+                                <p className="text-[14px] text-center">{item}</p>
                             </div>   
                         )
                     }

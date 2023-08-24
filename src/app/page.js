@@ -153,7 +153,7 @@ export default function Home() {
             </div>
           </div>
           {/* discover more section */}
-          <div className={`lg:block hidden  my-16  ${fix ? 'fixed 2xl:top-[5%] top-[5%] w-[30%] 2xl:w-[17%] right-[5%] 2xl:right-[25%] mb-10' : ''}`}>
+          <div className={`lg:block hidden  my-16  ${fix ? 'fixed  top-[5%] w-[30%] 2xl:w-[17%] right-[5%] 2xl:right-[25%] mb-10' : ''}`}>
             <div className='pb-5 border-b-[1px] border-[#d9d9dc] mb-7'>
               <h1 className='text-[16px] font-bold mb-3 '>Discover more of what matters to you</h1>
               <div className='flex gap-3 flex-wrap mb-2'>
