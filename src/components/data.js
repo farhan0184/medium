@@ -117,7 +117,7 @@ export const blogs =[
     },
     {
         id: 7,
-        person: 'Margaret Pan',
+        person: 'Alia Chowdhury',
         member: false,
         trend: true,
         img: Img4,
@@ -134,7 +134,7 @@ export const blogs =[
     },
     {
         id: 8,
-        person: 'Margaret Pan',
+        person: 'Alia Chowdhury',
         member: true,
         trend: true,
         img: Img4,
