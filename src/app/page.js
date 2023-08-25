@@ -170,7 +170,7 @@ export default function Home() {
             <div className='flex flex-wrap gap-x-2 gap-y-2 '>
               {
                 footerLinks.flatMap((item, idx) =>
-                  <p key={idx} className='text-[#656566] '>{item}</p>
+                  <Link href={'#'} key={idx} className='text-[#656566] hover:text-slate-900'>{item}</Link>
                 )
               }
             </div>

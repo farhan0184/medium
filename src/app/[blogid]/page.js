@@ -9,6 +9,7 @@ import { BsFillStarFill } from 'react-icons/bs'
 import { MdOutlineBookmarkAdd } from 'react-icons/md'
 import { BsFillEnvelopePlusFill } from 'react-icons/bs'
 import Blog from "@/components/blog"
+import Link from "next/link"
 
 export default function Page({ params }) {
     const blog = blogs.find(item => item.id == params.blogid)
@@ -161,7 +162,7 @@ export default function Page({ params }) {
                     {
                         footerLinks.flatMap((item,idx)=>
                             <div key={idx} className=" text-[#868484] me-5">
-                                <p className="text-[14px] text-center">{item}</p>
+                                <Link href={'#'} className="text-[14px] text-center hover:text-slate-900">{item}</Link>
                             </div>   
                         )
                     }
