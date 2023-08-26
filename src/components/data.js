@@ -16,6 +16,7 @@ export const blogs =[
     {
         id: 1,
         person: 'Kevin Chisholm',
+        userName:'kevin_chisholm',
         member: false,
         trend: true,
         img: Img1,
@@ -34,6 +35,7 @@ export const blogs =[
     {
         id: 2,
         person: 'Margaret Pan',
+        userName: 'margaret_pan',
         member: false,
         trend: false,
         img: Img2,
@@ -52,6 +54,7 @@ export const blogs =[
     {
         id: 3,
         person: 'Kevin Chisholm',
+        userName: 'kevin_chisholm',
         member: true,
         trend: true,
         img: Img1,
@@ -70,6 +73,7 @@ export const blogs =[
     {
         id: 4,
         person: 'Margaret Pan',
+        userName: 'margaret_pan',
         member: false,
         trend: true,
         img: Img2,
@@ -88,6 +92,7 @@ export const blogs =[
     {
         id: 5,
         person: 'Hasan Khan',
+        userName: 'hasan_khan',
         member: true,
         trend: true,
         img: Img3,
@@ -106,6 +111,7 @@ export const blogs =[
     {
         id: 6,
         person: 'Hasan Khan',
+        userName: 'hasan_khan',
         member: false,
         trend: false,
         img: Img3,
@@ -124,6 +130,7 @@ export const blogs =[
     {
         id: 7,
         person: 'Alia Chowdhury',
+        userName: 'alia_chowdhury',
         member: false,
         trend: true,
         img: Img4,
@@ -142,6 +149,7 @@ export const blogs =[
     {
         id: 8,
         person: 'Alia Chowdhury',
+        userName: 'alia_chowdhury',
         member: true,
         trend: true,
         img: Img4,
@@ -196,3 +204,5 @@ export const lists =[
         img: Banner2
     },
 ]
+
+

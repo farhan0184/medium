@@ -1,5 +1,4 @@
 import BlogDetail from "@/components/blogdetail"
-import BlogNavbar from "@/components/blognavbar"
 import { blogs, footerLinks, lists } from "@/components/data"
 import JointImage from "@/components/jointimage"
 import LikeComment from "@/components/likecomment"
@@ -10,15 +9,14 @@ import { MdOutlineBookmarkAdd } from 'react-icons/md'
 import { BsFillEnvelopePlusFill } from 'react-icons/bs'
 import Blog from "@/components/blog"
 import Link from "next/link"
+import { BlogFind } from "@/components/findblog"
 
 export default function Page({ params }) {
-    const blog = blogs.find(item => item.id == params.blogid)
+    const blog = BlogFind(blogs,params.blogid)
     const { id, person, member, img, from, logo, title, date, time, comment, like, banner, details, typeOfCom} = blog
 
     return (
         <div>
-            {/* navbar */}
-            <BlogNavbar />
             {/* blog section */}
             <div className="2xl:w-[50%] xl:w-[60%] lg:w-[70%] md:w-[90%] w-[85%]  mx-auto py-8">
                 {/* blog header section */}

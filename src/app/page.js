@@ -83,10 +83,10 @@ export default function Home() {
                         alt={trendBlog.from}
                         width={30}
                       />
-                      <p className="text-[12px]"><span className="font-bold">{trendBlog.person}</span> in <span className="font-bold">{trendBlog.from}</span></p>
+                      <p className="text-[12px]"><span className="font-bold"><Link href={`/@${trendBlog.userName}`}>{trendBlog.person}</Link></span> in <span className="font-bold">{trendBlog.from}</span></p>
 
                     </div>
-                    <Link href={`/${trendBlog.id}`}><h1 className='text-xl font-bold mb-3'>{trendBlog.title}</h1></Link>
+                    <Link href={`/@${trendBlog.userName}/${trendBlog.id}`}><h1 className='text-xl font-bold mb-3'>{trendBlog.title}</h1></Link>
                     <div className='flex gap-1 items-center text-[14px]'>
                       <p>{trendBlog.date}</p>.
                       <p>{trendBlog.time}</p>
@@ -121,11 +121,11 @@ export default function Home() {
                           width={20}
 
                         />
-                        <p className='text-[12px] '><span className='font-bold'>{item.person}</span> in <span className='font-bold'>{item.from}</span></p>
+                        <p className='text-[12px] '><span className='font-bold'><Link href={`/@${item.userName}`}>{item.person}</Link></span> in <span className='font-bold'>{item.from}</span></p>
                       </div>
                       {/* blog title and details */}
                       <div className='my-2'>
-                        <Link href={`/${item.id}`} className='sm:text-xl text-[16px] font-bold pe-2 cursor-pointer'>{item.title}</Link>
+                        <Link href={`/@${item.userName}/${item.id}`} className='sm:text-xl text-[16px] font-bold pe-2 cursor-pointer'>{item.title}</Link>
                         <p className='text-[12px] sm:text-[14px]'>{item.details}</p>
                       </div>
                       {/* blog like, comment & add icon */}
