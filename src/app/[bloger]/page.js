@@ -1,17 +1,31 @@
 'use client'
-import { blogs } from '@/components/data';
+import { blogs, footerLinks } from '@/components/data';
+import FollowMassage from '@/components/followmassage';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useState } from 'react';
-import { BsFillEnvelopePlusFill } from 'react-icons/bs';
+import React, { useEffect, useState } from 'react';
 import { MdOutlineBookmarkAdd } from 'react-icons/md';
 
 const Page = () => {
+    const [fix, setFix] = useState(false)
+    const setFixedSidebar = () => {
+        if (window.scrollY >= 52) {
+            setFix(true)
+        }
+        else {
+            setFix(false)
+        }
+    }
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            window.addEventListener('scroll', setFixedSidebar)
+        }
+    }, [fix])
     const pathname = usePathname()
     const [active, setActive] = useState(true)
     const blog = blogs.find(item => item.userName == pathname.slice(2,))
-    const { id, person, userName, member, img, from, logo, title, date, time, comment, like, banner, details, typeOfCom } = blog
+    const { person, userName, img, like, details } = blog
     const links = [
         {
             id: 1,
@@ -27,13 +41,19 @@ const Page = () => {
         },
     ]
     return (
-        <section className='flex  2xl:w-[50%]  lg:w-full w-[90%] mx-auto'>
+        <section className='flex  2xl:w-[50%]  lg:w-full w-[90%] mx-auto relative'>
             {/* left section */}
             <section className='lg:w-[70%] w-full'>
                 <div className='xl:w-[80%] lg:w-[80%] mx-auto mt-12'>
                     {/* header  section*/}
                     <div>
-                        <h1 className='text-3xl font-bold'>{person}</h1>
+                        <div className='md:flex justify-between items-center'>
+                            <h1 className='text-3xl font-bold'>{person}</h1>
+                            <div className='lg:hidden md:block'>
+                                <FollowMassage />
+                            </div>
+                        </div>
+
                         <div className={`flex gap-1 mt-14 border-b-[1px]`}>
                             {
                                 links.map(item =>
@@ -52,9 +72,9 @@ const Page = () => {
                                     <div className='w-[70%] pe-5'>
                                         {/* header section */}
                                         <div>
-                                            <p className='text-[14px] text-[#949090]'>{item.date}</p>
-                                            <h1 className='text-xl font-bold my-4'>{item.title}</h1>
-                                            <p className='text-[16px]'>{item.details}</p>
+                                            <p className='sm:text-[14px] text-[12px] text-[#949090]'>{item.date}</p>
+                                            <h1 className='sm:text-xl text-[16px]  font-bold sm:my-4 my-2'>{item.title}</h1>
+                                            <p className='sm:text-[16px] text-[14px]'>{item.details}</p>
                                         </div>
                                         {/* footer section */}
                                         <div className='mt-5 flex justify-between '>
@@ -72,7 +92,7 @@ const Page = () => {
                                         <Image
                                             src={item.banner}
                                             alt={item.person}
-
+                                            className='h-[80%]'
                                         />
                                     </div>
                                 </div>
@@ -82,23 +102,31 @@ const Page = () => {
                 </div>
             </section>
             {/* right section */}
-            <section className='w-[30%] lg:block hidden pt-10 px-10 border-l-[1px]'>
-                <Image
-                    src={img}
-                    alt={person}
-                    className='w-16 h-16 p-2 border-[1px] rounded-[30px]'
-                />
-                <div className='mt-5'>
-                    <h1 className='text-[18px] font-bold'>{person}</h1>
-                    <div className='text-[16px] text-[#999595]'>
-                        <p className='my-3 '>{like} follower</p>
-                        <p>{details}</p>
-                    </div>
-                    <div className='flex gap-4 mt-5 text-white'>
-                        <button className="bg-green-600 px-4 py-2 rounded-[30px]">Follow</button>
-                        <div className="w-10 h-10 bg-green-600  rounded-[30px] flex items-center justify-center">
-                            <BsFillEnvelopePlusFill className="text-xl " />
+            <section className={`w-[30%] h-[100vh] lg:block hidden pt-10 md:px-10 xl:px-5  border-l-[1px]  ${fix && 'sticky right-0 top-0  w-[30%]   '}`}>
+                <div className='w-full  relative h-full'>
+                    {/* header section */}
+
+                    <Image
+                        src={img}
+                        alt={person}
+                        className='w-16 h-16 p-2 border-[1px] rounded-[30px]'
+                    />
+                    <div className='mt-5'>
+                        <h1 className='text-[18px] font-bold'>{person}</h1>
+                        <div className='text-[16px] text-[#999595]'>
+                            <p className='my-3 '>{like} follower</p>
+                            <p>{details}</p>
                         </div>
+                        <FollowMassage />
+                    </div>
+
+                    {/* footer section */}
+                    <div className='flex flex-wrap fixed gap-2  bottom-0 md:w-[23%] xl:w-[27%] 2xl:w-[13.4%]  py-2  '>
+                        {
+                            footerLinks.flatMap((item, idx) =>
+                                <Link href={'#'} key={idx} className='text-[13px] text-[#656566] hover:text-slate-900'>{item}</Link>
+                            )
+                        }
                     </div>
                 </div>
             </section>
