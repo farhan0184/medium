@@ -1,16 +1,16 @@
 'use client'
 import { blogs } from '@/components/data';
-import { BlogFind } from '@/components/findblog';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
+import { BsFillEnvelopePlusFill } from 'react-icons/bs';
 import { MdOutlineBookmarkAdd } from 'react-icons/md';
 
 const Page = () => {
     const pathname = usePathname()
     const [active, setActive] = useState(true)
-    const blog = BlogFind(blogs, 1)
+    const blog = blogs.find(item => item.userName == pathname.slice(2,))
     const { id, person, userName, member, img, from, logo, title, date, time, comment, like, banner, details, typeOfCom } = blog
     const links = [
         {
@@ -27,14 +27,14 @@ const Page = () => {
         },
     ]
     return (
-        <section className='flex h-[100vh] 2xl:w-[50%]  lg:w-full w-[90%] mx-auto'>
+        <section className='flex  2xl:w-[50%]  lg:w-full w-[90%] mx-auto'>
             {/* left section */}
             <section className='lg:w-[70%] w-full'>
                 <div className='xl:w-[80%] lg:w-[80%] mx-auto mt-12'>
                     {/* header  section*/}
                     <div>
                         <h1 className='text-3xl font-bold'>{person}</h1>
-                        <div className={`flex gap-1 mt-20 border-b-[1px]`}>
+                        <div className={`flex gap-1 mt-14 border-b-[1px]`}>
                             {
                                 links.map(item =>
                                     <div key={item.id} className={`me-4 pb-3 ${pathname === item.link || item.isActive ? 'border-b-[1px] border-black text-black' : 'text-gray-600'}`}>
@@ -93,6 +93,12 @@ const Page = () => {
                     <div className='text-[16px] text-[#999595]'>
                         <p className='my-3 '>{like} follower</p>
                         <p>{details}</p>
+                    </div>
+                    <div className='flex gap-4 mt-5 text-white'>
+                        <button className="bg-green-600 px-4 py-2 rounded-[30px]">Follow</button>
+                        <div className="w-10 h-10 bg-green-600  rounded-[30px] flex items-center justify-center">
+                            <BsFillEnvelopePlusFill className="text-xl " />
+                        </div>
                     </div>
                 </div>
             </section>

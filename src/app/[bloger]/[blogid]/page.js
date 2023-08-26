@@ -9,10 +9,9 @@ import { MdOutlineBookmarkAdd } from 'react-icons/md'
 import { BsFillEnvelopePlusFill } from 'react-icons/bs'
 import Blog from "@/components/blog"
 import Link from "next/link"
-import { BlogFind } from "@/components/findblog"
 
 export default function Page({ params }) {
-    const blog = BlogFind(blogs,params.blogid)
+    const blog = blogs.find(item => item.id == params.blogid)
     const { id, person, member, img, from, logo, title, date, time, comment, like, banner, details, typeOfCom} = blog
 
     return (
